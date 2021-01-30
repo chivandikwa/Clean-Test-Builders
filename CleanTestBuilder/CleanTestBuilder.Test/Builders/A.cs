@@ -2,11 +2,11 @@
 {
     public class A
     {
-        public static PositionBuilder Position => new();
+        public static TradePositionBuilder TradePosition => new();
     }
 
     public class Some
     {
-        public static MoneyBuilder Money => new();
+        public static TradeValueBuilder TradeValue => new();
     }
 }

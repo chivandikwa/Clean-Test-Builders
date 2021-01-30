@@ -6,13 +6,8 @@ namespace CleanTestBuilder
 
     public abstract class Builder<T>
     {
-        private readonly Dictionary<string, object> _properties;
-
-        protected Builder()
-        {
-            _properties = new Dictionary<string, object>();
-        }
-
+        private readonly Dictionary<string, object> _properties =
+            new();
 
         protected abstract T Build();
 
@@ -32,7 +27,7 @@ namespace CleanTestBuilder
             var expression = (MemberExpression)action.Body;
             var name = expression.Member.Name;
 
-            _properties.Add(name, value);
+            _properties[name] = value;
         }
 
         /// <summary>

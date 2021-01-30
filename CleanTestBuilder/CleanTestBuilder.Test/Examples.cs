@@ -11,24 +11,24 @@ namespace CleanTestBuilder.Tests
         {
             // caters for the common scenario, you just need a valid positioni
 
-            Position position1 = A.Position
+            TradePosition position1 = A.TradePosition
                 .ThatIsValid();
 
             // caters for scenario were you need to be in control of all properties
-            Position position2 = A.Position
+            TradePosition position2 = A.TradePosition
                 .WithIdentifier(Guid.NewGuid())
                 .WithFixedLegNotional(
                     // notice the chained builder here, very powerful!
-                    Some.Money
+                    Some.TradeValue
                         .WithValue(1_500_00)
                         .WithCurrencyIsoCode("EUR"))
                 .WithFloatLegNotional(
-                    Some.Money
+                    Some.TradeValue
                         .WithValue(2_480_00)
                         .WithCurrencyIsoCode("EUR"));
 
             // caters for scenario where you care for single property in your test but rest should be valid
-            Position position3 = A.Position
+            TradePosition position3 = A.TradePosition
                 .WithIdentifier(Guid.NewGuid());
         }
     }
