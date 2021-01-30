@@ -7,18 +7,8 @@
 
     public class BuilderTests
     {
-        public class TestData
-        {
-            public TestData(Guid id, string description)
-            {
-                Id = id;
-                Description = description;
-            }
-
-            public Guid Id { get; }
-            public string Description { get; }
-        }
-
+        public record TestData(Guid Id, string Description);
+       
         public class TestDataBuilder : Builder<TestData>
         {
             public TestDataBuilder WithId(Guid id)
@@ -35,14 +25,14 @@
                 return this;
             }
 
-            protected override TestData Build() => new TestData(Get(x => x.Id), Get(x => x.Description));
+            protected override TestData Build() => new(Get(x => x.Id), Get(x => x.Description));
         }
 
         public class Some
         {
             // TODO
             // Document care that should be taken to make sure each builder is a new instance
-            public static TestDataBuilder TestData => new TestDataBuilder();
+            public static TestDataBuilder TestData => new();
         }
 
         [Fact]

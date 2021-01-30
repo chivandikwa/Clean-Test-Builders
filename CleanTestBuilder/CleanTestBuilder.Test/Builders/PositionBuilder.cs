@@ -30,7 +30,7 @@ namespace CleanTestBuilder.Tests.Builders
             return this;
         }
 
-        protected override Position Build() => new Position(
+        protected override Position Build() => new(
             Get(x => x.Identifier),
             Get(x => x.FixedLegNotional),
             Get(x => x.FixedLegNotional));

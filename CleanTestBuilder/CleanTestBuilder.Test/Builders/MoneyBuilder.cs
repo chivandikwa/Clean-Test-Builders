@@ -22,6 +22,6 @@ namespace CleanTestBuilder.Tests.Builders
             return this;
         }
 
-        protected override Money Build() => new Money(Get(x => x.Value), Get(x => x.CurrencyIsoCode));
+        protected override Money Build() => new(Get(x => x.Value), Get(x => x.CurrencyIsoCode));
     }
 }
