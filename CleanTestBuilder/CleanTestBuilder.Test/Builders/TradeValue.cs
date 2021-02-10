@@ -1,4 +1,6 @@
 namespace CleanTestBuilder.Tests.Builders
 {
-    public record TradeValue(double Value, string CurrencyIsoCode);
+    public record TradeValue(
+        double Value,
+        string CurrencyIsoCode);
 }
